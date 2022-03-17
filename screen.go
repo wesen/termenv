@@ -2,7 +2,6 @@ package termenv
 
 import (
 	"fmt"
-	"os"
 	"strings"
 )
 
@@ -262,196 +261,196 @@ func (o Output) SetWindowTitle(title string) {
 
 // Reset the terminal to its default style, removing any active styles.
 func Reset() {
-	NewOutputWithProfile(os.Stdout, ANSI).Reset()
+	NewOutputWithProfile(defaultOutputFile, ANSI).Reset()
 }
 
 // SetForegroundColor sets the default foreground color.
 func SetForegroundColor(color Color) {
-	NewOutputWithProfile(os.Stdout, ANSI).SetForegroundColor(color)
+	NewOutputWithProfile(defaultOutputFile, ANSI).SetForegroundColor(color)
 }
 
 // SetBackgroundColor sets the default background color.
 func SetBackgroundColor(color Color) {
-	NewOutputWithProfile(os.Stdout, ANSI).SetBackgroundColor(color)
+	NewOutputWithProfile(defaultOutputFile, ANSI).SetBackgroundColor(color)
 }
 
 // SetCursorColor sets the cursor color.
 func SetCursorColor(color Color) {
-	NewOutputWithProfile(os.Stdout, ANSI).SetCursorColor(color)
+	NewOutputWithProfile(defaultOutputFile, ANSI).SetCursorColor(color)
 }
 
 // RestoreScreen restores a previously saved screen state.
 func RestoreScreen() {
-	NewOutputWithProfile(os.Stdout, ANSI).RestoreScreen()
+	NewOutputWithProfile(defaultOutputFile, ANSI).RestoreScreen()
 }
 
 // SaveScreen saves the screen state.
 func SaveScreen() {
-	NewOutputWithProfile(os.Stdout, ANSI).SaveScreen()
+	NewOutputWithProfile(defaultOutputFile, ANSI).SaveScreen()
 }
 
 // AltScreen switches to the alternate screen buffer. The former view can be
 // restored with ExitAltScreen().
 func AltScreen() {
-	NewOutputWithProfile(os.Stdout, ANSI).AltScreen()
+	NewOutputWithProfile(defaultOutputFile, ANSI).AltScreen()
 }
 
 // ExitAltScreen exits the alternate screen buffer and returns to the former
 // terminal view.
 func ExitAltScreen() {
-	NewOutputWithProfile(os.Stdout, ANSI).ExitAltScreen()
+	NewOutputWithProfile(defaultOutputFile, ANSI).ExitAltScreen()
 }
 
 // ClearScreen clears the visible portion of the terminal.
 func ClearScreen() {
-	NewOutputWithProfile(os.Stdout, ANSI).ClearScreen()
+	NewOutputWithProfile(defaultOutputFile, ANSI).ClearScreen()
 }
 
 // MoveCursor moves the cursor to a given position.
 func MoveCursor(row int, column int) {
-	NewOutputWithProfile(os.Stdout, ANSI).MoveCursor(row, column)
+	NewOutputWithProfile(defaultOutputFile, ANSI).MoveCursor(row, column)
 }
 
 // HideCursor hides the cursor.
 func HideCursor() {
-	NewOutputWithProfile(os.Stdout, ANSI).HideCursor()
+	NewOutputWithProfile(defaultOutputFile, ANSI).HideCursor()
 }
 
 // ShowCursor shows the cursor.
 func ShowCursor() {
-	NewOutputWithProfile(os.Stdout, ANSI).ShowCursor()
+	NewOutputWithProfile(defaultOutputFile, ANSI).ShowCursor()
 }
 
 // SaveCursorPosition saves the cursor position.
 func SaveCursorPosition() {
-	NewOutputWithProfile(os.Stdout, ANSI).SaveCursorPosition()
+	NewOutputWithProfile(defaultOutputFile, ANSI).SaveCursorPosition()
 }
 
 // RestoreCursorPosition restores a saved cursor position.
 func RestoreCursorPosition() {
-	NewOutputWithProfile(os.Stdout, ANSI).RestoreCursorPosition()
+	NewOutputWithProfile(defaultOutputFile, ANSI).RestoreCursorPosition()
 }
 
 // CursorUp moves the cursor up a given number of lines.
 func CursorUp(n int) {
-	NewOutputWithProfile(os.Stdout, ANSI).CursorUp(n)
+	NewOutputWithProfile(defaultOutputFile, ANSI).CursorUp(n)
 }
 
 // CursorDown moves the cursor down a given number of lines.
 func CursorDown(n int) {
-	NewOutputWithProfile(os.Stdout, ANSI).CursorDown(n)
+	NewOutputWithProfile(defaultOutputFile, ANSI).CursorDown(n)
 }
 
 // CursorForward moves the cursor up a given number of lines.
 func CursorForward(n int) {
-	NewOutputWithProfile(os.Stdout, ANSI).CursorForward(n)
+	NewOutputWithProfile(defaultOutputFile, ANSI).CursorForward(n)
 }
 
 // CursorBack moves the cursor backwards a given number of cells.
 func CursorBack(n int) {
-	NewOutputWithProfile(os.Stdout, ANSI).CursorBack(n)
+	NewOutputWithProfile(defaultOutputFile, ANSI).CursorBack(n)
 }
 
 // CursorNextLine moves the cursor down a given number of lines and places it at
 // the beginning of the line.
 func CursorNextLine(n int) {
-	NewOutputWithProfile(os.Stdout, ANSI).CursorNextLine(n)
+	NewOutputWithProfile(defaultOutputFile, ANSI).CursorNextLine(n)
 }
 
 // CursorPrevLine moves the cursor up a given number of lines and places it at
 // the beginning of the line.
 func CursorPrevLine(n int) {
-	NewOutputWithProfile(os.Stdout, ANSI).CursorPrevLine(n)
+	NewOutputWithProfile(defaultOutputFile, ANSI).CursorPrevLine(n)
 }
 
 // ClearLine clears the current line.
 func ClearLine() {
-	NewOutputWithProfile(os.Stdout, ANSI).ClearLine()
+	NewOutputWithProfile(defaultOutputFile, ANSI).ClearLine()
 }
 
 // ClearLineLeft clears the line to the left of the cursor.
 func ClearLineLeft() {
-	NewOutputWithProfile(os.Stdout, ANSI).ClearLineLeft()
+	NewOutputWithProfile(defaultOutputFile, ANSI).ClearLineLeft()
 }
 
 // ClearLineRight clears the line to the right of the cursor.
 func ClearLineRight() {
-	NewOutputWithProfile(os.Stdout, ANSI).ClearLineRight()
+	NewOutputWithProfile(defaultOutputFile, ANSI).ClearLineRight()
 }
 
 // ClearLines clears a given number of lines.
 func ClearLines(n int) {
-	NewOutputWithProfile(os.Stdout, ANSI).ClearLines(n)
+	NewOutputWithProfile(defaultOutputFile, ANSI).ClearLines(n)
 }
 
 // ChangeScrollingRegion sets the scrolling region of the terminal.
 func ChangeScrollingRegion(top, bottom int) {
-	NewOutputWithProfile(os.Stdout, ANSI).ChangeScrollingRegion(top, bottom)
+	NewOutputWithProfile(defaultOutputFile, ANSI).ChangeScrollingRegion(top, bottom)
 }
 
 // InsertLines inserts the given number of lines at the top of the scrollable
 // region, pushing lines below down.
 func InsertLines(n int) {
-	NewOutputWithProfile(os.Stdout, ANSI).InsertLines(n)
+	NewOutputWithProfile(defaultOutputFile, ANSI).InsertLines(n)
 }
 
 // DeleteLines deletes the given number of lines, pulling any lines in
 // the scrollable region below up.
 func DeleteLines(n int) {
-	NewOutputWithProfile(os.Stdout, ANSI).DeleteLines(n)
+	NewOutputWithProfile(defaultOutputFile, ANSI).DeleteLines(n)
 }
 
 // EnableMousePress enables X10 mouse mode. Button press events are sent only.
 func EnableMousePress() {
-	NewOutputWithProfile(os.Stdout, ANSI).EnableMousePress()
+	NewOutputWithProfile(defaultOutputFile, ANSI).EnableMousePress()
 }
 
 // DisableMousePress disables X10 mouse mode.
 func DisableMousePress() {
-	NewOutputWithProfile(os.Stdout, ANSI).DisableMousePress()
+	NewOutputWithProfile(defaultOutputFile, ANSI).DisableMousePress()
 }
 
 // EnableMouse enables Mouse Tracking mode.
 func EnableMouse() {
-	NewOutputWithProfile(os.Stdout, ANSI).EnableMouse()
+	NewOutputWithProfile(defaultOutputFile, ANSI).EnableMouse()
 }
 
 // DisableMouse disables Mouse Tracking mode.
 func DisableMouse() {
-	NewOutputWithProfile(os.Stdout, ANSI).DisableMouse()
+	NewOutputWithProfile(defaultOutputFile, ANSI).DisableMouse()
 }
 
 // EnableMouseHilite enables Hilite Mouse Tracking mode.
 func EnableMouseHilite() {
-	NewOutputWithProfile(os.Stdout, ANSI).EnableMouseHilite()
+	NewOutputWithProfile(defaultOutputFile, ANSI).EnableMouseHilite()
 }
 
 // DisableMouseHilite disables Hilite Mouse Tracking mode.
 func DisableMouseHilite() {
-	NewOutputWithProfile(os.Stdout, ANSI).DisableMouseHilite()
+	NewOutputWithProfile(defaultOutputFile, ANSI).DisableMouseHilite()
 }
 
 // EnableMouseCellMotion enables Cell Motion Mouse Tracking mode.
 func EnableMouseCellMotion() {
-	NewOutputWithProfile(os.Stdout, ANSI).EnableMouseCellMotion()
+	NewOutputWithProfile(defaultOutputFile, ANSI).EnableMouseCellMotion()
 }
 
 // DisableMouseCellMotion disables Cell Motion Mouse Tracking mode.
 func DisableMouseCellMotion() {
-	NewOutputWithProfile(os.Stdout, ANSI).DisableMouseCellMotion()
+	NewOutputWithProfile(defaultOutputFile, ANSI).DisableMouseCellMotion()
 }
 
 // EnableMouseAllMotion enables All Motion Mouse mode.
 func EnableMouseAllMotion() {
-	NewOutputWithProfile(os.Stdout, ANSI).EnableMouseAllMotion()
+	NewOutputWithProfile(defaultOutputFile, ANSI).EnableMouseAllMotion()
 }
 
 // DisableMouseAllMotion disables All Motion Mouse mode.
 func DisableMouseAllMotion() {
-	NewOutputWithProfile(os.Stdout, ANSI).DisableMouseAllMotion()
+	NewOutputWithProfile(defaultOutputFile, ANSI).DisableMouseAllMotion()
 }
 
 // SetWindowTitle sets the terminal window title.
 func SetWindowTitle(title string) {
-	NewOutputWithProfile(os.Stdout, ANSI).SetWindowTitle(title)
+	NewOutputWithProfile(defaultOutputFile, ANSI).SetWindowTitle(title)
 }

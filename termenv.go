@@ -27,10 +27,16 @@ func isTTY(fd uintptr) bool {
 	return isatty.IsTerminal(fd)
 }
 
+var defaultOutputFile = os.Stdout
+
+func SetDefaultOutput(f *os.File) {
+	defaultOutputFile = f
+}
+
 // ColorProfile returns the supported color profile:
 // Ascii, ANSI, ANSI256, or TrueColor.
 func ColorProfile() Profile {
-	if !isTTY(os.Stdout.Fd()) {
+	if !isTTY(defaultOutputFile.Fd()) {
 		return Ascii
 	}
 
@@ -39,19 +45,19 @@ func ColorProfile() Profile {
 
 // ForegroundColor returns the terminal's default foreground color.
 func ForegroundColor() Color {
-	o := NewOutputWithProfile(os.Stdout, TrueColor)
+	o := NewOutputWithProfile(defaultOutputFile, TrueColor)
 	return o.ForegroundColor()
 }
 
 // BackgroundColor returns the terminal's default background color.
 func BackgroundColor() Color {
-	o := NewOutputWithProfile(os.Stdout, TrueColor)
+	o := NewOutputWithProfile(defaultOutputFile, TrueColor)
 	return o.BackgroundColor()
 }
 
 // HasDarkBackground returns whether terminal uses a dark-ish background.
 func HasDarkBackground() bool {
-	o := NewOutputWithProfile(os.Stdout, TrueColor)
+	o := NewOutputWithProfile(defaultOutputFile, TrueColor)
 	return o.HasDarkBackground()
 }
 
