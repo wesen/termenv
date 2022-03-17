@@ -27,6 +27,18 @@ type Style struct {
 	styles []string
 }
 
+func (t Style) Copy() Style {
+	o := Style{
+		Profile: t.Profile,
+		string:  t.string,
+	}
+	for _, v := range t.styles {
+		o.styles = append(o.styles, v)
+	}
+
+	return o
+}
+
 // String returns a new Style.
 func String(s ...string) Style {
 	return Style{
